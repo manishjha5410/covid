@@ -58,7 +58,7 @@ body {
 }
 
 .nav {
-    height: var(--nav-height);
+    /* height: var(--nav-height); */
     display: flex;
     align-items: center;
     justify-content: space-between;

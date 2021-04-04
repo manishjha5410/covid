@@ -31,6 +31,8 @@ window.onload = async () => {
     
     await initRecoveryRate()
 
+    await initMortalityRate()
+
     await loadData('Global')
 
     await loadCountrySelectList()
@@ -310,10 +312,45 @@ initRecoveryRate = async () => {
         },
         series: [],
         labels: ['Recovery rate'],
-        colors: [COLORS.recovered]
+        colors: [COLORS.recovered],
+        fill: {
+            type: "gradient",
+            gradient: {
+              shade: "dark",
+              type: "vertical",
+              gradientToColors: ["#87D4F9"],
+              stops: [0, 100]
+            }
+          }
     }
 
     recover_rate_chart = new ApexCharts(document.querySelector('#recover-rate-chart'), options)
+
+    recover_rate_chart.render()
+}
+
+initMortalityRate =()=>{
+
+    let options = {
+        chart: {
+            type: 'radialBar',
+            height: '350'
+        },
+        series: [],
+        labels: ['Mortality rate'],
+        colors: [COLORS.deaths],
+        fill: {
+            type: "gradient",
+            gradient: {
+              shade: "dark",
+              type: "vertical",
+              gradientToColors: ["#87D4F9"],
+              stops: [0, 100]
+            }
+          }
+    }
+
+    recover_rate_chart = new ApexCharts(document.querySelector('#mortality-rate-chart'), options)
 
     recover_rate_chart.render()
 }
