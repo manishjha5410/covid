@@ -2,6 +2,8 @@ const COLORS = {
     confirmed: '#ff0000',
     recovered: '#008000',
     deaths: '#373c43',
+    recoveredGradient: '#f8ef42-#0fd64f',
+    deadGradient:'#ffed00-#ff0000'
 }
 
 const CASE_STATUS = {
@@ -14,7 +16,7 @@ let body = document.querySelector('body')
 
 let countries_list
 
-let all_time_chart, days_chart, recover_rate_chart
+let all_time_chart, days_chart, recover_rate_chart, mortality_rate_chart
 
 window.onload = async () => {
     console.log('ready...')
@@ -101,6 +103,7 @@ loadSummary = async (country) => {
     // load recovery rate
 
     await loadRecoveryRate(Math.floor(summary.TotalRecovered / summary.TotalConfirmed * 100))
+    await loadMortalityRate(Math.floor(summary.TotalDeaths / summary.TotalConfirmed * 100))
 
     // load countries table
 
@@ -310,15 +313,26 @@ initRecoveryRate = async () => {
             type: 'radialBar',
             height: '350'
         },
+        hollow: {
+            size: "90%"
+        },
         series: [],
         labels: ['Recovery rate'],
-        colors: [COLORS.recovered],
+        dataLabels: {
+            name: {
+              color: COLORS.confirmed,
+            }
+        },
+        colors: [COLORS.recoveredGradient.split('-')[0]],
+        stroke: {
+            lineCap: "round",
+          },
         fill: {
             type: "gradient",
             gradient: {
               shade: "dark",
               type: "vertical",
-              gradientToColors: ["#87D4F9"],
+              gradientToColors: [COLORS.recoveredGradient.split('-')[1]],
               stops: [0, 100]
             }
           }
@@ -338,26 +352,43 @@ initMortalityRate =()=>{
         },
         series: [],
         labels: ['Mortality rate'],
-        colors: [COLORS.deaths],
-        fill: {
-            type: "gradient",
-            gradient: {
-              shade: "dark",
-              type: "vertical",
-              gradientToColors: ["#87D4F9"],
-              stops: [0, 100]
+        dataLabels: {
+            name: {
+              color: COLORS.deaths,
             }
-          }
+        },
+        stroke: {
+            lineCap: "round",
+        },
+        hollow: {
+            margin: 15,
+            size: "90%"
+        },
+        colors: [COLORS.deadGradient.split('-')[1]],
+        // fill: {
+        //     type: "gradient",
+        //     gradient: {
+        //       shade: "dark",
+        //       type: "horizontal",
+        //       gradientToColors: [COLORS.deadGradient.split('-')[1]],
+        //       stops:[0,0.5]
+        //     }
+        //   }
     }
 
-    recover_rate_chart = new ApexCharts(document.querySelector('#mortality-rate-chart'), options)
+    mortality_rate_chart = new ApexCharts(document.querySelector('#mortality-rate-chart'), options)
 
-    recover_rate_chart.render()
+    mortality_rate_chart.render()
 }
 
 loadRecoveryRate = async (rate) => {
     // use updateSeries
     recover_rate_chart.updateSeries([rate])
+}
+
+loadMortalityRate = async (rate) => {
+    // use updateSeries
+    mortality_rate_chart.updateSeries([rate])
 }
 
 // dark mode switch
@@ -383,6 +414,7 @@ setDarkChart = (dark) => {
     all_time_chart.updateOptions(theme)
     days_chart.updateOptions(theme)
     recover_rate_chart.updateOptions(theme)
+    mortality_rate_chart.updateOptions(theme)
 }
 
 // country select
