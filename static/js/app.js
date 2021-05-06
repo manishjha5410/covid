@@ -30,7 +30,7 @@ window.onload = async () => {
     await initAllTimesChart()
 
     await initDaysChart()
-    
+
     await initRecoveryRate()
 
     await initMortalityRate()
@@ -46,7 +46,7 @@ window.onload = async () => {
 
 loadData = async (country) => {
     startLoading()
-    
+
     await loadSummary(country)
 
     await loadAllTimeChart(country)
@@ -113,7 +113,8 @@ loadSummary = async (country) => {
     table_countries_body.innerHTML = ''
 
     for (let i = 0; i < 10; i++) {
-        let row = `
+        let row =
+        `
             <tr>
                 <td>${casesByCountries[i].Country}</td>
                 <td>${numberWithCommas(casesByCountries[i].TotalConfirmed)}</td>
@@ -380,16 +381,23 @@ initMortalityRate =()=>{
 
     mortality_rate_chart.render()
 }
+//https://codepen.io/freeCodeCamp/pen/EZKqza https://github.com/markmarkoh/datamaps
+
+initChart = () => {
+      
+}
 
 loadRecoveryRate = async (rate) => {
     // use updateSeries
     recover_rate_chart.updateSeries([rate])
+    initChart();
 }
 
 loadMortalityRate = async (rate) => {
     // use updateSeries
     mortality_rate_chart.updateSeries([rate])
 }
+
 
 // dark mode switch
 
