@@ -30,7 +30,7 @@ window.onload = async () => {
     await initAllTimesChart()
 
     await initDaysChart()
-
+    
     await initRecoveryRate()
 
     await initMortalityRate()
@@ -46,7 +46,7 @@ window.onload = async () => {
 
 loadData = async (country) => {
     startLoading()
-
+    
     await loadSummary(country)
 
     await loadAllTimeChart(country)
@@ -113,13 +113,12 @@ loadSummary = async (country) => {
     table_countries_body.innerHTML = ''
 
     for (let i = 0; i < 10; i++) {
-        let row =
-        `
+        let row = `
             <tr>
-                <td>${casesByCountries[i].Country}</td>
-                <td>${numberWithCommas(casesByCountries[i].TotalConfirmed)}</td>
-                <td>${numberWithCommas(casesByCountries[i].TotalRecovered)}</td>
-                <td>${numberWithCommas(casesByCountries[i].TotalDeaths)}</td>
+                <td data-label="Country" scope="row">${casesByCountries[i].Country}</td>
+                <td data-label="Confirmed">${numberWithCommas(casesByCountries[i].TotalConfirmed)}</td>
+                <td data-label="Recovered">${numberWithCommas(casesByCountries[i].TotalRecovered)}</td>
+                <td data-label="Deaths">${numberWithCommas(casesByCountries[i].TotalDeaths)}</td>
             </tr>
         `
         table_countries_body.innerHTML += row
@@ -345,8 +344,12 @@ initRecoveryRate = async () => {
 }
 
 initMortalityRate =()=>{
+	
+	let options;
 
-    let options = {
+	if(window.screen.width>400)
+	{
+		options = {
         chart: {
             type: 'radialBar',
             height: '350'
@@ -375,29 +378,78 @@ initMortalityRate =()=>{
         //       stops:[0,0.5]
         //     }
         //   }
-    }
+		}
+	}
+	else
+	{
+		options = {
+          series: [],
+		  colors:[COLORS.deadGradient.split('-')[1]],
+          chart: {
+          type: 'bar',
+          height: 350,
+          stacked: true,
+          toolbar: {
+            show: true
+          },
+          zoom: {
+            enabled: true
+          }
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: 'bottom',
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }],
+        plotOptions: {
+          bar: {
+            borderRadius: 8,
+            horizontal: false,
+          },
+        },
+        xaxis: {
+          categories: ['Mortality Rate in %'],
+        },
+        legend: {
+          position: 'right',
+          offsetY: 40
+        },
+        fill: {
+          opacity: 1
+        }
+        };
+	}
 
     mortality_rate_chart = new ApexCharts(document.querySelector('#mortality-rate-chart'), options)
 
     mortality_rate_chart.render()
 }
-//https://codepen.io/freeCodeCamp/pen/EZKqza https://github.com/markmarkoh/datamaps
-
-initChart = () => {
-      
-}
 
 loadRecoveryRate = async (rate) => {
     // use updateSeries
     recover_rate_chart.updateSeries([rate])
-    initChart();
 }
 
 loadMortalityRate = async (rate) => {
     // use updateSeries
-    mortality_rate_chart.updateSeries([rate])
+	if(window.screen.width>400)
+		mortality_rate_chart.updateSeries([rate]);
+	else
+    mortality_rate_chart.updateSeries([{
+		name:'Mortality rate in %',
+		data:[
+		{
+			"x":'Mortality Rate in %',
+			"y":`${rate*100/5}%`
+		}
+		]
+	}])
 }
-
 
 // dark mode switch
 

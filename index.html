@@ -14,6 +14,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- CSS -->
     <link rel="stylesheet" href="./static/css/grid.css">
+	<link rel="stylesheet" href="./static/css/table.css">
     <link rel="stylesheet" href="./static/css/app.css">
 </head>
 
@@ -70,7 +71,7 @@
                             <div class="box box-hover">
                                 <div class="count count-confirmed">
                                     <div class="count-icon">
-                                        <i class="bx bxs-virus"></i>
+                                        <i class="bx bxs-sad"></i>
                                     </div>
                                     <div class="count-info">
                                         <h5 id="confirmed-total">123,456,789</h5>
@@ -100,7 +101,7 @@
                             <div class="box box-hover">
                                 <div class="count count-death">
                                     <div class="count-icon">
-                                        <i class="bx bxs-sad"></i>
+                                        <i class="bx bxs-dizzy"></i>
                                     </div>
                                     <div class="count-info">
                                         <h5 id="death-total">123,456,789</h5>
@@ -119,16 +120,6 @@
                                 </div>
                                 <div class="box-body">
                                     <div id="all-time-chart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="box">
-                                <div class="box-header">
-                                    Map
-                                </div>
-                                <div class="box-body">
-                                    <div id="chart-container"></div>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +145,7 @@
                                     how to protect yourself
                                 </div>
                                 <div class="box-body">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/1APwq1df6Mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<iframe width="100%" height="315" src="https://www.youtube.com/embed/yXncHLQA2_k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -204,20 +195,18 @@
                             <table class="table-countries" id="table-countries">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            Country
-                                        </th>
-                                        <th>Confirmed</th>
-                                        <th>Recovered</th>
-                                        <th>Deaths</th>
+                                        <th scope="col">Country</th>
+                                        <th scope="col">Confirmed</th>
+                                        <th scope="col">Recovered</th>
+                                        <th scope="col">Deaths</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
+                                        <td data-label="Country" scope="row">test</td>
+                                        <td data-label="Confirmed">test</td>
+                                        <td data-label="Recovered">test</td>
+                                        <td data-label="Deaths">test</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -236,7 +225,7 @@
     <div class="footer">
         Source from <a href="https://documenter.getpostman.com/view/10808728/SzS8rjbc#b07f97ba-24f4-4ebe-ad71-97fa35f3b683" target="_blank">api.covid19api.com</a>
         <br>
-        Designed by <a href="https://www.youtube.com/tuattrananh" target="_blank">Tuat Tran Anh</a>
+        Designed by <a href="https://www.youtube.com/tuattrananh" target="_blank">-</a>
     </div>
     <!-- end footer -->
 
@@ -248,6 +237,7 @@
 
     <!-- apexchart -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <!-- JS -->
     <script src="./static/js/fetchApi.js"></script>
     <script src="./static/js/covidApi.js"></script>

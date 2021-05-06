@@ -1,0 +1,90 @@
+.table-countries {
+    width: 100%;
+    border-spacing: 0;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.table-countries caption
+{
+	font-size: 1.5em;
+	margin: .5em 0 .75em;
+}
+
+.table-countries thead tr th,
+.table-countries tbody tr td {
+    border-bottom: 1px solid var(--bg-body);
+}
+
+.table-countries th {
+    padding: 0.5rem;
+}
+
+.table-countries td {
+    font-weight: 0.9rem;
+    padding: 0.5rem;
+    width: 25%;
+    text-align: center;
+}
+
+.table-countries tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+.table-countries th,
+.table-countries td {
+  padding: .625em;
+  text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+  .table-countries {
+    border: 0;
+  }
+
+  .table-countries caption {
+    font-size: 1.3em;
+  }
+  
+  .table-countries thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+    
+  .table-countries td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  .table-countries td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .table-countries td:last-child {
+    border-bottom: 0;
+  }
+  
+  .table-countries thead tr th, .table-countries tbody tr td {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+}
