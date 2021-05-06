@@ -308,34 +308,83 @@ loadDaysChart = async (country) => {
 }
 
 initRecoveryRate = async () => {
-    let options = {
-        chart: {
-            type: 'radialBar',
-            height: '350'
-        },
-        hollow: {
-            size: "90%"
-        },
-        series: [],
-        labels: ['Recovery rate'],
-        dataLabels: {
-            name: {
-              color: COLORS.confirmed,
+    let options;
+
+    if(window.screen.width>400)
+	{
+        options = {
+            chart: {
+                type: 'radialBar',
+                height: '350'
+            },
+            hollow: {
+                size: "90%"
+            },
+            series: [],
+            labels: ['Recovery rate'],
+            dataLabels: {
+                name: {
+                  color: COLORS.confirmed,
+                }
+            },
+            colors: [COLORS.recoveredGradient.split('-')[0]],
+            stroke: {
+                lineCap: "round",
+              },
+            fill: {
+                type: "gradient",
+                gradient: {
+                  shade: "dark",
+                  type: "vertical",
+                  gradientToColors: [COLORS.recoveredGradient.split('-')[1]],
+                  stops: [0, 100]
+                }
+              }
+        }
+    }
+    else
+    {
+        options = {
+            series: [],
+            colors:[COLORS.recoveredGradient.split('-')[1]],
+            chart: {
+            type: 'bar',
+            height: 350,
+            stacked: true,
+            toolbar: {
+              show: true
+            },
+            zoom: {
+              enabled: true
             }
-        },
-        colors: [COLORS.recoveredGradient.split('-')[0]],
-        stroke: {
-            lineCap: "round",
           },
-        fill: {
-            type: "gradient",
-            gradient: {
-              shade: "dark",
-              type: "vertical",
-              gradientToColors: [COLORS.recoveredGradient.split('-')[1]],
-              stops: [0, 100]
+          responsive: [{
+            breakpoint: 480,
+            options: {
+              legend: {
+                position: 'bottom',
+                offsetX: -10,
+                offsetY: 0
+              }
             }
+          }],
+          plotOptions: {
+            bar: {
+              borderRadius: 8,
+              horizontal: false,
+            },
+          },
+          xaxis: {
+            categories: ['Recovery Rate in %'],
+          },
+          legend: {
+            position: 'right',
+            offsetY: 40
+          },
+          fill: {
+            opacity: 1
           }
+        };
     }
 
     recover_rate_chart = new ApexCharts(document.querySelector('#recover-rate-chart'), options)
@@ -344,7 +393,7 @@ initRecoveryRate = async () => {
 }
 
 initMortalityRate =()=>{
-	
+
 	let options;
 
 	if(window.screen.width>400)
@@ -432,7 +481,18 @@ initMortalityRate =()=>{
 
 loadRecoveryRate = async (rate) => {
     // use updateSeries
-    recover_rate_chart.updateSeries([rate])
+    if(window.screen.width>400)
+		recover_rate_chart.updateSeries([rate]);
+	else
+        recover_rate_chart.updateSeries([{
+		    name:'Recovery rate in %',
+		    data:[
+		    {
+			    "x":'Recovery Rate in %',
+			    "y":`${rate}%`
+		    }
+		    ]
+	    }]);
 }
 
 loadMortalityRate = async (rate) => {
@@ -440,15 +500,15 @@ loadMortalityRate = async (rate) => {
 	if(window.screen.width>400)
 		mortality_rate_chart.updateSeries([rate]);
 	else
-    mortality_rate_chart.updateSeries([{
-		name:'Mortality rate in %',
-		data:[
-		{
-			"x":'Mortality Rate in %',
-			"y":`${rate*100/5}%`
-		}
-		]
-	}])
+        mortality_rate_chart.updateSeries([{
+	    	name:'Mortality rate in %',
+		    data:[
+		    {
+			    "x":'Mortality Rate in %',
+			    "y":`${rate}%`
+		    }
+		    ]
+	    }]);
 }
 
 // dark mode switch

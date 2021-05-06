@@ -344,5 +344,12 @@ body {
 		width: 20px;
 	}
 	
-	
+    .count
+    {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-content: stretch;
+    }
 }
