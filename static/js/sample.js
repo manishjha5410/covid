@@ -1,18 +1,9 @@
-/* global d3, topojson */
-/* eslint-disable max-len */
+var first = d3.select('#Chorolepth-map');
 
-// eslint-disable-next-line no-unused-vars
-const projectName = 'choropleth';
-
-// coded by @paycoguy & @ChristianPaul (github)
-
-// Define body
-var body = d3.select('body');
-
-var svg = d3.select('svg');
+var svg = d3.select('#worldMap');
 
 // Define the div for the tooltip
-var tooltip = body
+var tooltip = first
   .append('div')
   .attr('class', 'tooltip')
   .attr('id', 'tooltip')
@@ -129,6 +120,7 @@ function ready(error, us, education) {
     .attr('d', path)
     .on('mouseover', function (d) {
       tooltip.style('opacity', 0.9);
+      d3.select(this).style("stroke", "black");
       tooltip
         .html(function () {
           var result = education.filter(function (obj) {
@@ -162,6 +154,7 @@ function ready(error, us, education) {
     })
     .on('mouseout', function () {
       tooltip.style('opacity', 0);
+      d3.select(this).style("stroke", "transparent");
     });
 
   svg
