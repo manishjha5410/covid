@@ -8,8 +8,6 @@
     <title>
         Covid tracker
     </title>
-    <link rel="shortcut icon" href="./static/images/favicon.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- CSS -->
@@ -158,6 +156,7 @@
                                 <div class="box-body">
                                     <div id="Chorolepth-map">
                                         <svg id="worldMap" width="960" height="600"></svg>
+                                        <!-- <svg id="legend"></svg> -->
                                     </div>
                                 </div>
                             </div>
@@ -249,13 +248,12 @@
 
     <!-- apexchart -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <!-- JS -->
     <script src="./static/js/fetchApi.js"></script>
     <script src="./static/js/covidApi.js"></script>
     <script src="./static/js/app.js"></script>
     <!-- Map -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <script src='https://d3js.org/topojson.v2.min.js'></script>
