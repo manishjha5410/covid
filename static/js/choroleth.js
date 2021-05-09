@@ -13,6 +13,7 @@ var projection = d3.geoMercator()
 .scale(100)
 .center([0,20])
 
+
 var x = d3.scaleLinear().domain([2.6, 75.1]).rangeRound([600, 860]);
 
 var color = d3
@@ -73,20 +74,60 @@ g.call(
   .remove();
 
 const EDUCATION_FILE =
-  'https://raw.githubusercontent.com/no-stack-dub-sack/testable-projects-fcc/master/src/data/choropleth_map/for_user_education.json';
+  'https://gist.githubusercontent.com/keeguon/2310008/raw/bdc2ce1c1e3f28f9cab5b4393c7549f38361be4e/countries.json';
 const COUNTY_FILE =
   'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-10m.json';
 
-d3.queue()
-  .defer(d3.json, COUNTY_FILE)
-  .defer(d3.json, EDUCATION_FILE)
-  .await(ready);
+
+  fetch(EDUCATION_FILE).then((response,err) =>{
+    if(err) return err;
+    return response.json();
+  }).then((data,err) =>{
+    if(err) return err;
+    console.log("Data"+data);
+  })
+
+
+  // d3.json(COUNTY_FILE).then(
+  //   (data, error) => {
+  //       if(error){
+  //         console.log(error);
+  //       }
+  //       else
+  //       {
+  //         let countyData = data;
+  //         countyData = topojson.feature(data, data.objects.countries).features
+  //         console.log('County Data');
+  //         console.log(countyData);
+
+  //         d3.json(EDUCATION_FILE).then(
+  //             (data,err) => {
+  //               if(err)
+  //                 console.log(err);
+  //               else
+  //               {
+  //                 educationData = data;
+  //                 console.log("Education");
+  //                 console.log(educationData);
+  //                 ready();
+  //               }
+  //           }
+  //         )
+  //       }
+  //   }
+  // )
+// d3.queue()
+//   .defer(d3.json, COUNTY_FILE)
+//   .defer(d3.json, EDUCATION_FILE)
+//   .await(ready);
 
 function ready(error, us, education)
 {
   if (error) {
     throw error;
   }
+
+  console.log(education);
 
   svg
     .append('g')
