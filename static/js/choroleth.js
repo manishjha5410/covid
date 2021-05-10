@@ -74,60 +74,37 @@ g.call(
   .remove();
 
 const EDUCATION_FILE =
-  'https://gist.githubusercontent.com/keeguon/2310008/raw/bdc2ce1c1e3f28f9cab5b4393c7549f38361be4e/countries.json';
+  'https://raw.githubusercontent.com/manishjha5410/covid/main/static/json/countries.json';
 const COUNTY_FILE =
   'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-10m.json';
 
+let countries,Area,newData;
 
-  fetch(EDUCATION_FILE).then((response,err) =>{
-    if(err) return err;
-    return response.json();
-  }).then((data,err) =>{
-    if(err) return err;
-    console.log("Data"+data);
-  })
+	fetchRequest(COUNTY_FILE)
+	.then(data=>{
+		Area = data;
+		fetchRequest(EDUCATION_FILE)
+		.then(data=>{
+			countries = data;
+		covidApi.getSummary()
+		.then(data=>{
+			newData=data.Countries;
+			
+			for(var i =0;i<newData.length;i++)
+			{
+				countries[i].Confirmed = newData.filter((ele)=>{
+					return countries[i].code === ele.CountryCode;
+				})[0];
+			}
+			console.log(countries);
+			ready(Area,countries);
+			});
+		});
+	});
 
 
-  // d3.json(COUNTY_FILE).then(
-  //   (data, error) => {
-  //       if(error){
-  //         console.log(error);
-  //       }
-  //       else
-  //       {
-  //         let countyData = data;
-  //         countyData = topojson.feature(data, data.objects.countries).features
-  //         console.log('County Data');
-  //         console.log(countyData);
-
-  //         d3.json(EDUCATION_FILE).then(
-  //             (data,err) => {
-  //               if(err)
-  //                 console.log(err);
-  //               else
-  //               {
-  //                 educationData = data;
-  //                 console.log("Education");
-  //                 console.log(educationData);
-  //                 ready();
-  //               }
-  //           }
-  //         )
-  //       }
-  //   }
-  // )
-// d3.queue()
-//   .defer(d3.json, COUNTY_FILE)
-//   .defer(d3.json, EDUCATION_FILE)
-//   .await(ready);
-
-function ready(error, us, education)
+function ready(us, education)
 {
-  if (error) {
-    throw error;
-  }
-
-  console.log(education);
 
   svg
     .append('g')
