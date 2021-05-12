@@ -1,5 +1,6 @@
 fetchRequest = async (url) => {
     const response = await fetch(url)
-    return response.json()
+    return await response.json()
 }
 
+// https://github.com/Yatko/Coronavirus-API

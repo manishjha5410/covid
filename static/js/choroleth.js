@@ -80,47 +80,55 @@ const COUNTY_FILE =
 
 let countries,Area,newData;
 
-	fetchRequest(COUNTY_FILE)
-	.then(data=>{
-		Area = data;
-		fetchRequest(EDUCATION_FILE)
-		.then(data=>{
-			countries = data;
-		covidApi.getSummary()
-		.then(data=>{
-			newData=data.Countries;
-			
-			for(var i =0;i<newData.length;i++)
-			{
-				countries[i].Confirmed = newData.filter((ele)=>{
-					return countries[i].code === ele.CountryCode;
-				})[0];
-			}
-			console.log(countries);
-			ready(Area,countries);
-			});
-		});
-	});
+loadStats = async () =>{
+
+  let summaryData = await covidApi.getSummary();
+  newData = summaryData.Countries.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed);
+
+  Area = await fetchRequest(COUNTY_FILE);
+  countries =  await fetchRequest(EDUCATION_FILE);
+
+  for(var i =0;i<newData.length;i++)
+  {
+
+    summaryData = newData.filter((ele)=>{
+      return countries[i].code === ele.CountryCode;
+    })[0];
+
+    try
+    {
+      countries[i].Confirmed = summaryData.TotalConfirmed;
+    }
+    catch(e)
+    {}
+  }
+
+  ready(Area,countries);
+}
+
+loadStats();
 
 
-function ready(us, education)
+function ready(Area, Countries)
 {
 
   svg
     .append('g')
     .attr('class', 'counties')
     .selectAll('path')
-    .data(topojson.feature(us, us.objects.countries).features)
+    .data(topojson.feature(Area, Area.objects.countries).features)
     .enter()
     .append('path')
     .attr('class', 'county')
-    .attr('data-fips', function (d) {
-      return d.id;
+    .attr('data-name', function (d) {
+      return d.properties['name'].toLowerCase();
     })
-    .attr('data-education', function (d) {
-      var result = education.filter(function (obj) {
-        return obj.fips === d.id;
+    .attr('data-Countries', function (d) {
+      var result = Countries.filter(function (obj) {
+        console.log(obj.name,d.properties['name'].toLowerCase());
+        return obj.name.replace(' ','') === d.properties['name'].toLowerCase().replace(' ','');
       });
+      console.log(result);
       if (result[0]) {
         return result[0].bachelorsOrHigher;
       }
@@ -129,7 +137,7 @@ function ready(us, education)
       return 0;
     })
     .attr('fill', function (d) {
-      var result = education.filter(function (obj) {
+      var result = Countries.filter(function (obj) {
         return obj.fips === d.id;
       });
       if (result[0]) {
@@ -146,7 +154,7 @@ function ready(us, education)
       d3.select(this).style("stroke", "black");
       tooltip
         .html(function () {
-          var result = education.filter(function (obj) {
+          var result = Countries.filter(function (obj) {
             return obj.fips === d.id;
           });
           if (result[0]) {
@@ -162,8 +170,8 @@ function ready(us, education)
           // could not find a matching fips id in the data
           return 0;
         })
-        .attr('data-education', function () {
-          var result = education.filter(function (obj) {
+        .attr('data-Countries', function () {
+          var result = Countries.filter(function (obj) {
             return obj.fips === d.id;
           });
           if (result[0]) {
@@ -183,7 +191,7 @@ function ready(us, education)
   svg
     .append('path')
     .datum(
-      topojson.mesh(us, us.objects.states, function (a, b) {
+      topojson.mesh(Area, Area.objects.states, function (a, b) {
         return a !== b;
       })
     )
