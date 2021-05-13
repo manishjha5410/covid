@@ -125,15 +125,14 @@ function ready(Area, Countries)
     })
     .attr('data-Countries', function (d) {
       var result = Countries.filter(function (obj) {
-        console.log(obj.name,d.properties['name'].toLowerCase());
-        return obj.name.replace(' ','') === d.properties['name'].toLowerCase().replace(' ','');
+		  console.log(d);
+        return obj.name.toLowerCase().replace(' ','') === d.properties['name'].toLowerCase().replace(' ','');
       });
-      console.log(result);
-      if (result[0]) {
-        return result[0].bachelorsOrHigher;
+	  if(result.length==0)
+//		      console.log(d.properties.name);  
+      if (result.Confirmed) {
+        return result.Confirmed;
       }
-      // could not find a matching fips id in the data
-      console.log('could find data for: ', d.id);
       return 0;
     })
     .attr('fill', function (d) {

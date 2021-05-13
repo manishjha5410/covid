@@ -232,8 +232,20 @@
     "code": "CZ"
   },
   {
+	"name": "Czechia",
+	"code": "CZ"
+  },
+  {
+	"name": "Democratic Republic Of Congo",
+	"code": "COD"
+  },
+  {
     "name": "Denmark",
     "code": "DK"
+  },
+  {
+	"name":"Dhekelia",
+	"code":"DX"
   },
   {
     "name": "Djibouti",
@@ -468,6 +480,10 @@
     "code": "KR"
   },
   {
+	"name": "Kosovo",
+	"code": "XK"
+  },
+  {
     "name": "Kuwait",
     "code": "KW"
   },
@@ -476,7 +492,7 @@
     "code": "KG"
   },
   {
-    "name": "Lao People\"S Democratic Republic",
+    "name": "Laos",
     "code": "LA"
   },
   {
@@ -496,7 +512,7 @@
     "code": "LR"
   },
   {
-    "name": "Libyan Arab Jamahiriya",
+    "name": "Libya",
     "code": "LY"
   },
   {
@@ -516,7 +532,7 @@
     "code": "MO"
   },
   {
-    "name": "Macedonia, The Former Yugoslav Republic of",
+    "name": "Macedonia",
     "code": "MK"
   },
   {
@@ -648,6 +664,10 @@
     "code": "NF"
   },
   {
+    "name": "North Korea",
+	"code": "PRK"
+  },
+  {
     "name": "Northern Mariana Islands",
     "code": "MP"
   },
@@ -720,7 +740,7 @@
     "code": "RO"
   },
   {
-    "name": "Russian Federation",
+    "name": "Russia",
     "code": "RU"
   },
   {
@@ -738,6 +758,10 @@
   {
     "name": "Saint Lucia",
     "code": "LC"
+  },
+  {
+	"name": "Saint Martin",
+	"code": "MAF"
   },
   {
     "name": "Saint Pierre and Miquelon",
@@ -784,6 +808,10 @@
     "code": "SG"
   },
   {
+	"name": "Sint Maarten",
+	"code": "SX"
+  },
+  {
     "name": "Slovakia",
     "code": "SK"
   },
@@ -800,8 +828,16 @@
     "code": "SO"
   },
   {
+    "name": "Somaliland",
+	"code": "SOM"
+  },
+  {
     "name": "South Africa",
     "code": "ZA"
+  },
+  {
+	"name": "South Korea",
+	"code": "KOR"
   },
   {
     "name": "South Georgia and the South Sandwich Islands",
@@ -840,7 +876,7 @@
     "code": "CH"
   },
   {
-    "name": "Syrian Arab Republic",
+    "name": "Syria",
     "code": "SY"
   },
   {
@@ -852,7 +888,7 @@
     "code": "TJ"
   },
   {
-    "name": "Tanzania, United Republic of",
+    "name": "Tanzania",
     "code": "TZ"
   },
   {
@@ -940,7 +976,7 @@
     "code": "VE"
   },
   {
-    "name": "Viet Nam",
+    "name": "VietNam",
     "code": "VN"
   },
   {
