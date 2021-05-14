@@ -56,6 +56,10 @@
     "code": "AW"
   },
   {
+    "name": "Ashmore and Cartier Island",
+    "code": "ACI"
+  },
+  {
     "name": "Australia",
     "code": "AU"
   },
@@ -66,6 +70,10 @@
   {
     "name": "Azerbaijan",
     "code": "AZ"
+  },
+  {
+    "name": "Bajo Nuevo Bank",
+    "code": "BNB"
   },
   {
     "name": "Bahamas",
@@ -195,6 +203,10 @@
     "name": "Christmas Island",
     "code": "CX"
   },
+  {                  
+    "name": "Clipperton Island",
+    "code": "PF"
+  },  
   {
     "name": "Cocos (Keeling) Islands",
     "code": "CC"
@@ -218,6 +230,10 @@
   {
     "name": "Cook Islands",
     "code": "CK"
+  },
+  {
+    "name": "Coral Sea Is.",
+    "code": "AUS"
   },
   {
     "name": "Costa Rica",
@@ -608,7 +624,7 @@
     "code": "MX"
   },
   {
-    "name": "Micronesia, Federated States of",
+    "name": "Micronesia",
     "code": "FM"
   },
   {
@@ -824,6 +840,10 @@
     "code": "SA"
   },
   {
+    "name": "Scarborough Reef",
+    "code": "SR"
+  },
+  {
     "name": "Senegal",
     "code": "SN"
   },
@@ -832,12 +852,16 @@
     "code": "CS"
   },
   {
+    "name": "Serranilla Bank",
+    "code": "SB"
+  },
+  {
     "name": "Seychelles",
     "code": "SC"
   },
   {
-	"name": "Siachen Glacier",
-	"code": "SG"
+	  "name": "Siachen Glacier",
+	  "code": "SG"
   },
   {
     "name": "Sierra Leone",
@@ -886,6 +910,10 @@
   {
     "name": "Spain",
     "code": "ES"
+  },
+  {
+    "name": "Spratly Island",
+    "code": "SP"
   },
   {
     "name": "Sri Lanka",
