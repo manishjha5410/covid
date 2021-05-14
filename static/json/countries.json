@@ -4,6 +4,10 @@
     "code": "AF"
   },
   {
+    "name": "Akrotiri",
+	"code": "AKT"
+  },
+  {
     "name": "Aland Islands",
     "code": "AX"
   },
@@ -70,6 +74,10 @@
   {
     "name": "Bahrain",
     "code": "BH"
+  },
+  {
+	"name": "Baikonur",
+	"code": "BAI"
   },
   {
     "name": "Bangladesh",
@@ -142,6 +150,10 @@
   {
     "name": "Burundi",
     "code": "BI"
+  },
+  {
+	"name": "Cabo Verde",
+	"code": "CPV"
   },
   {
     "name": "Cambodia",
@@ -224,8 +236,16 @@
     "code": "CU"
   },
   {
+	"name": "Curaçao",
+	"code": "CUW"  
+  },
+  {
     "name": "Cyprus",
     "code": "CY"
+  },
+  {
+	"name": "Cyprus U.N. Buffer Zone",
+	"code": "UCY"
   },
   {
     "name": "Czech Republic",
@@ -233,7 +253,7 @@
   },
   {
   	"name": "Czechia",
-	  "code": "CZ"
+	"code": "CZ"
   },
   {
 	  "name": "Democratic Republic Of Congo",
@@ -318,6 +338,10 @@
   {
     "name": "French Polynesia",
     "code": "PF"
+  },
+  {
+	"name": "Fr. S. Antarctic Lands",
+	"code": "FRTF"
   },
   {
     "name": "French Southern Territories",
@@ -416,6 +440,10 @@
     "code": "IN"
   },
   {
+	"name": "Indian Ocean Ter.",
+	"code": "IOT"
+  },
+  {
     "name": "Indonesia",
     "code": "ID"
   },
@@ -470,14 +498,6 @@
   {
     "name": "Kiribati",
     "code": "KI"
-  },
-  {
-    "name": "Korea,Democratic People\"S Republic of",
-    "code": "KP"
-  },
-  {
-    "name": "Korea,Republic of",
-    "code": "KR"
   },
   {
 	"name": "Kosovo",
@@ -760,6 +780,10 @@
     "code": "RW"
   },
   {
+    "name": "Saint Barthelemy",
+	"code": "BL"
+  },
+  {
     "name": "Saint Helena",
     "code": "SH"
   },
@@ -810,6 +834,10 @@
   {
     "name": "Seychelles",
     "code": "SC"
+  },
+  {
+	"name": "Siachen Glacier",
+	"code": "SG"
   },
   {
     "name": "Sierra Leone",
@@ -892,7 +920,7 @@
     "code": "SY"
   },
   {
-    "name": "Taiwan, Province of China",
+    "name": "Taiwan",
     "code": "TW"
   },
   {
