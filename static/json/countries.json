@@ -20,7 +20,7 @@
     "code": "AS"
   },
   {
-    "name": "AndorrA",
+    "name": "Andorra",
     "code": "AD"
   },
   {
@@ -128,7 +128,7 @@
     "code": "IO"
   },
   {
-    "name": "Brunei Darussalam",
+    "name": "Brunei",
     "code": "BN"
   },
   {
@@ -232,20 +232,20 @@
     "code": "CZ"
   },
   {
-	"name": "Czechia",
-	"code": "CZ"
+  	"name": "Czechia",
+	  "code": "CZ"
   },
   {
-	"name": "Democratic Republic Of Congo",
-	"code": "COD"
+	  "name": "Democratic Republic Of Congo",
+	  "code": "COD"
   },
   {
     "name": "Denmark",
     "code": "DK"
   },
   {
-	"name":"Dhekelia",
-	"code":"DX"
+	  "name":"Dhekelia",
+	  "code":"DX"
   },
   {
     "name": "Djibouti",
@@ -282,6 +282,10 @@
   {
     "name": "Estonia",
     "code": "EE"
+  },
+  {
+    "name": "Eswatini",
+    "code": "SWZ"
   },
   {
     "name": "Ethiopia",
@@ -392,10 +396,6 @@
     "code": "HM"
   },
   {
-    "name": "Holy See (Vatican City State)",
-    "code": "VA"
-  },
-  {
     "name": "Honduras",
     "code": "HN"
   },
@@ -420,7 +420,7 @@
     "code": "ID"
   },
   {
-    "name": "Iran, Islamic Republic Of",
+    "name": "Iran",
     "code": "IR"
   },
   {
@@ -540,6 +540,10 @@
     "code": "MG"
   },
   {
+    "name": "Mali",
+    "code": "MLI"
+  },
+  {
     "name": "Malawi",
     "code": "MW"
   },
@@ -588,7 +592,7 @@
     "code": "FM"
   },
   {
-    "name": "Moldova, Republic of",
+    "name": "Moldova",
     "code": "MD"
   },
   {
@@ -598,6 +602,10 @@
   {
     "name": "Mongolia",
     "code": "MN"
+  },
+  {
+    "name": "Montenegro",
+    "code": "MNE"
   },
   {
     "name": "Montserrat",
@@ -665,7 +673,11 @@
   },
   {
     "name": "North Korea",
-	"code": "PRK"
+	  "code": "PRK"
+  },
+  {
+    "name": "Northern Cyprus",
+    "code": "NCY"
   },
   {
     "name": "Northern Mariana Islands",
@@ -760,8 +772,8 @@
     "code": "LC"
   },
   {
-	"name": "Saint Martin",
-	"code": "MAF"
+	  "name": "Saint Martin",
+	  "code": "MAF"
   },
   {
     "name": "Saint Pierre and Miquelon",
@@ -792,7 +804,7 @@
     "code": "SN"
   },
   {
-    "name": "Serbia and Montenegro",
+    "name": "Serbia",
     "code": "CS"
   },
   {
@@ -808,8 +820,8 @@
     "code": "SG"
   },
   {
-	"name": "Sint Maarten",
-	"code": "SX"
+	  "name": "Sint Maarten",
+	  "code": "SX"
   },
   {
     "name": "Slovakia",
@@ -829,15 +841,15 @@
   },
   {
     "name": "Somaliland",
-	"code": "SOM"
+	  "code": "SOM"
   },
   {
     "name": "South Africa",
     "code": "ZA"
   },
   {
-	"name": "South Korea",
-	"code": "KOR"
+	  "name": "South Korea",
+	  "code": "KOR"
   },
   {
     "name": "South Georgia and the South Sandwich Islands",
@@ -964,12 +976,20 @@
     "code": "UY"
   },
   {
+    "name": "USNB Guantanamo Bay",
+    "code": "MUGM"
+  },
+  {
     "name": "Uzbekistan",
     "code": "UZ"
   },
   {
     "name": "Vanuatu",
     "code": "VU"
+  },
+  {
+    "name": "Vatican",
+    "code": "VA"
   },
   {
     "name": "Venezuela",
